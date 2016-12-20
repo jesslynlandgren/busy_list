@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Busy List</title>
+
+        <script src="js/jquery.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/angular-ui-router.js"></script>
+        <script src="js/frontend.js"></script>
+
+        <!-- Fonts -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Arvo|Roboto|Ubuntu" rel="stylesheet">
+        <!-- Custom CSS -->
+        <!-- <link rel="stylesheet" href="node_modules/normalize.css/normalize.css"> -->
+        <link rel="stylesheet" href="css/style.css">
+
+
+        <!-- Google Sign On -->
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="908645059217-f56b1r1o620kdoa3nv2s0cfqhm4fbems.apps.googleusercontent.com.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+    </head>
+
+    <body ng-app="busy_list" ng-controller="IndexController">
+        <ui-view class="main-view"></ui-view>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+/* Turquoise */
+/* Green Sea */
+/* Emerald */
+/* Nephritis */
+/* Peter River */
+/* Belize Hole */
+/* Amethyst */
+/* Wisteria */
+/* Wet Asphalt */
+/* Midnight Blue */
+/* Sunflower */
+/* Orange */
+/* Carrot */
+/* Pumpkin */
+/* Alizarin */
+/* Pomegranate */
+/* Clouds */
+/* Silver */
+/* Concrete */
+/* Asbestos */
+html {
+  height: 100%; }
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif; }
+
+a {
+  text-decoration: none; }
+
+.main-view {
+  display: block;
+  height: 100%;
+  width: 100%; }
+
+.welcome-container {
+  height: 100%;
+  background: #212f3d;
+  color: white; }
+
+.tagline-container {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center; }
+  .tagline-container .tag-large {
+    font-size: 3em; }
+
+.oauth-container {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around; }
+  .oauth-container .facebook, .oauth-container .google, .oauth-container .email {
+    width: 70%; }
+  .oauth-container .google .google-button {
+    width: 100%; }
+  .oauth-container .google .abcRioButtonLightBlue {
+    width: 100% !important;
+    height: 44px !important; }
+  .oauth-container .google .abcRioButtonContentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .oauth-container .email .email-button {
+    border: 3px solid white;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    text-align: center; }
+
+.credit-container {
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .credit-container .credit {
+    font-size: .7em; }
+    .credit-container .credit a {
+      color: white;
+      padding: 0;
+      margin: 0; }
+
+/*# sourceMappingURL=style.css.map */

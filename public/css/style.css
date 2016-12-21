@@ -40,7 +40,7 @@ a {
   color: white; }
 
 .tagline-container {
-  height: 50%;
+  height: 45%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -50,31 +50,36 @@ a {
     font-size: 3em; }
 
 .oauth-container {
-  height: 30%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-content: space-around; }
-  .oauth-container .facebook, .oauth-container .google, .oauth-container .email {
-    width: 70%; }
-  .oauth-container .google .google-button {
+  .oauth-container .facebook-auth, .oauth-container .google-auth, .oauth-container .email-auth {
+    width: 70%;
+    height: 33.33%; }
+  .oauth-container .google-auth .google-button {
     width: 100%; }
-  .oauth-container .google .abcRioButtonLightBlue {
+  .oauth-container .google-auth .abcRioButtonLightBlue {
     width: 100% !important;
     height: 44px !important; }
-  .oauth-container .google .abcRioButtonContentWrapper {
+  .oauth-container .google-auth .abcRioButtonContentWrapper {
     display: flex;
     align-items: center;
     justify-content: center; }
-  .oauth-container .email .email-button {
-    border: 3px solid white;
-    color: white;
-    padding: 10px 20px 10px 20px;
+  .oauth-container .email-auth {
     text-align: center; }
+    .oauth-container .email-auth .email-button {
+      border: 3px solid white;
+      color: white;
+      padding: 10px 20px 10px 20px;
+      margin-bottom: 10px; }
+    .oauth-container .email-auth .signup-text {
+      font-size: .8em; }
 
 .credit-container {
-  height: 20%;
+  height: 15%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,5 +90,84 @@ a {
       color: white;
       padding: 0;
       margin: 0; }
+
+.login-form {
+  height: 50%;
+  width: 70%; }
+  .login-form .login-email, .login-form .login-password {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .login-form .login-email input, .login-form .login-password input {
+      background: #17202a;
+      height: 95%;
+      width: 80%;
+      border: none;
+      padding-left: 10%;
+      color: white;
+      outline: none; }
+  .login-form .login-email {
+    border-bottom: 1px solid white; }
+  .login-form .icon-container {
+    height: 100%;
+    width: 30%;
+    background: #566573;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.login-submit {
+  background: white;
+  color: #212f3d;
+  width: 70%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.jk-signup {
+  font-size: .8em; }
+
+.signup-form {
+  height: 60%;
+  width: 70%; }
+  .signup-form .signup-name, .signup-form .signup-email, .signup-form .signup-password {
+    height: 33.3%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .signup-form .signup-name input, .signup-form .signup-email input, .signup-form .signup-password input {
+      background: #17202a;
+      height: 95%;
+      width: 80%;
+      border: none;
+      padding-left: 10%;
+      color: white;
+      outline: none;
+      font-family: 'Ubuntu', sans-serif; }
+  .signup-form .signup-name, .signup-form .signup-email {
+    border-bottom: 1px solid white; }
+  .signup-form .icon-container {
+    height: 100%;
+    width: 30%;
+    background: #566573;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.signup-submit {
+  background: white;
+  color: #212f3d;
+  width: 70%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.jk-login {
+  font-size: .8em; }
 
 /*# sourceMappingURL=style.css.map */

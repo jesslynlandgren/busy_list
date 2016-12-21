@@ -24,6 +24,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/welcome',
             templateUrl: 'welcome.html',
             controller: 'WelcomeController'
+        })
+        .state({
+            name: 'welcome.auth-buttons',
+            url: '/auth-buttons',
+            templateUrl: 'auth-buttons.html',
+            controller: 'AuthButtonsController'
+        })
+        .state({
+            name: 'welcome.login',
+            url: '/login',
+            templateUrl: 'login.html',
+            controller: 'LoginController'
+        })
+        .state({
+            name: 'welcome.signup',
+            url: '/signup',
+            templateUrl: 'signup.html',
+            controller: 'SignUpController'
         });
     $urlRouterProvider.otherwise('/welcome');
 });
@@ -35,6 +53,18 @@ app.controller('IndexController', function($scope, busyListService, $state) {
 
 
 app.controller('WelcomeController', function($scope, busyListService, $state) {
+    $state.go('welcome.signup');
+});
+
+app.controller('AuthButtonsController', function($scope, busyListService, $state) {
+
+});
+
+app.controller('LoginController', function($scope, busyListService, $state) {
+
+});
+
+app.controller('SignUpController', function($scope, busyListService, $state) {
 
 });
 

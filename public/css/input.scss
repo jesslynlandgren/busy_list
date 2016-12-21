@@ -321,7 +321,7 @@ a {
 
 .tagline-container {
     // border: 4px solid blue;
-    height: 50%;
+    height: 45%;
     @include flex-column-end;
     text-align: center;
 
@@ -332,19 +332,20 @@ a {
 
 .oauth-container {
     // border: 4px solid purple;
-    height: 30%;
+    height: 40%;
     @include flex-column-center;
     justify-content: space-around;
 
-    .facebook, .google, .email {
+    .facebook-auth, .google-auth, .email-auth {
         width: 70%;
+        height: 33.33%;
     }
 
-    .facebook {
+    .facebook-auth {
         // border: 4px solid green;
     }
 
-    .google {
+    .google-auth {
         // border: 4px solid blue;
 
         .google-button {
@@ -367,21 +368,26 @@ a {
 
     }
 
-    .email {
+    .email-auth {
         // border: 4px solid purple;
+        text-align: center;
 
         .email-button {
             border: 3px solid white;
             color: white;
             padding: 10px 20px 10px 20px;
-            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .signup-text {
+            font-size: .8em;
         }
     }
 }
 
 .credit-container {
     // border: 4px solid red;
-    height: 20%;
+    height: 15%;
     @include flex-column-center;
 
     .credit {
@@ -394,4 +400,103 @@ a {
             margin: 0;
         }
     }
+}
+
+.login-form {
+    // border: 4px solid red;
+    height: 50%;
+    width: 70%;
+    // z-index: 5;
+
+    .login-email, .login-password {
+        // border: 4px solid yellow;
+        height: 50%;
+        width: 100%;
+        @include flex-row-center;
+
+        input {
+            background: $midnight-blue-900;
+            height: 95%;
+            width: 80%;
+            border: none;
+            padding-left: 10%;
+            color: white;
+            outline: none;
+        }
+    }
+
+    .login-email {
+        border-bottom: 1px solid white;
+    }
+
+    .icon-container {
+        // border: 4px solid orange;
+        height: 100%;
+        width: 30%;
+        background: $midnight-blue-400;
+        @include flex-row-center;
+    }
+}
+
+.login-submit {
+    // border: 4px solid green;
+    background: white;
+    color: $midnight-blue-700;
+    width: 70%;
+    height: 20%;
+    @include flex-row-center;
+}
+
+.jk-signup {
+    font-size: .8em;
+}
+
+.signup-form {
+    // border: 4px solid red;
+    height: 60%;
+    width: 70%;
+    // z-index: 5;
+
+    .signup-name, .signup-email, .signup-password {
+        // border: 4px solid yellow;
+        height: 33.3%;
+        width: 100%;
+        @include flex-row-center;
+
+        input {
+            background: $midnight-blue-900;
+            height: 95%;
+            width: 80%;
+            border: none;
+            padding-left: 10%;
+            color: white;
+            outline: none;
+            font-family: 'Ubuntu', sans-serif;
+        }
+    }
+
+    .signup-name, .signup-email {
+        border-bottom: 1px solid white;
+    }
+
+    .icon-container {
+        // border: 4px solid orange;
+        height: 100%;
+        width: 30%;
+        background: $midnight-blue-400;
+        @include flex-row-center;
+    }
+}
+
+.signup-submit {
+    // border: 4px solid green;
+    background: white;
+    color: $midnight-blue-700;
+    width: 70%;
+    height: 20%;
+    @include flex-row-center;
+}
+
+.jk-login {
+    font-size: .8em;
 }

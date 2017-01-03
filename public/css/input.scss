@@ -267,9 +267,23 @@ $body-font: 'Ubuntu', sans-serif;
 
 ////MIXINS
 //Flexbox
+
+
 @mixin flex-row-center(){
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-row-start(){
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin flex-row-end(){
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -280,6 +294,20 @@ $body-font: 'Ubuntu', sans-serif;
     align-items: center;
 }
 
+@mixin flex-column-center-spacearound(){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin flex-column-center-spacebtwn(){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @mixin flex-column-end(){
     display: flex;
     flex-direction: column;
@@ -287,7 +315,15 @@ $body-font: 'Ubuntu', sans-serif;
     align-items: center;
 }
 
+
+
 //// MAIN
+
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+}
 
 html {
     // border: 4px solid red;
@@ -305,11 +341,54 @@ a {
     text-decoration: none;
 }
 
-.main-view {
-    // border: 4px solid yellow;
-    display: block;
-    height: 100%;
-    width: 100%;
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideOutToLeft {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .welcome-container {
@@ -334,7 +413,7 @@ a {
     // border: 4px solid purple;
     height: 40%;
     @include flex-column-center;
-    justify-content: space-around;
+    // justify-content: space-around;
 
     .facebook-auth, .google-auth, .email-auth {
         width: 70%;
@@ -385,6 +464,15 @@ a {
     }
 }
 
+.oauth-container.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
+}
+
+.oauth-container.ng-enter-active {
+    opacity: 1;
+}
+
 .credit-container {
     // border: 4px solid red;
     height: 15%;
@@ -406,7 +494,7 @@ a {
     // border: 4px solid red;
     height: 50%;
     width: 70%;
-    // z-index: 5;
+    margin-bottom: 10px;
 
     .login-email, .login-password {
         // border: 4px solid yellow;
@@ -445,6 +533,7 @@ a {
     width: 70%;
     height: 20%;
     @include flex-row-center;
+    margin-bottom: 10px;
 }
 
 .jk-signup {
@@ -455,7 +544,7 @@ a {
     // border: 4px solid red;
     height: 60%;
     width: 70%;
-    // z-index: 5;
+    margin-bottom: 10px;
 
     .signup-name, .signup-email, .signup-password {
         // border: 4px solid yellow;
@@ -494,9 +583,156 @@ a {
     color: $midnight-blue-700;
     width: 70%;
     height: 20%;
+    margin-bottom: 10px;
     @include flex-row-center;
 }
 
 .jk-login {
     font-size: .8em;
+}
+/////////////////////////////////////
+
+
+.all_lists, .one_list {
+    position: absolute;
+    // border: 4px solid yellow;
+    display: block;
+    height: 100%;
+    width: 100%;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.one_list {
+    // border: 4px solid red;
+}
+
+.all_lists.ng-enter {
+    animation-name: slideInFromLeft;
+}
+
+.all_lists.ng-leave {
+    animation-name: slideOutToLeft;
+}
+
+.one_list.ng-enter {
+    animation-name: slideInFromRight;
+}
+
+.one_list.ng-leave {
+    animation-name: slideOutToRight;
+}
+
+//////////////////////////////////////
+
+.nav-all, .nav-one {
+    // border: 4px solid red;
+    width: 100%;
+    height: 13%;
+    background: $midnight-blue-800;
+    color: white;
+    font-size: 2em;
+    padding: 0 15px 0 20px;
+}
+
+.nav-all {
+    @include flex-row-end;
+}
+
+.nav-one {
+    @include flex-row-start;
+}
+
+.main-container {
+    // border: 4px solid green;
+    width: 100%;
+    height: 87%;
+    @include flex-column-center;
+}
+
+.user-dash {
+    // border: 4px solid purple;
+    height: 30%;
+    width: 100%;
+    @include flex-row-center;
+    background: $midnight-blue-600;
+
+    .user-info {
+        // border: 4px solid yellow;
+        @include flex-column-center;
+        width: 70%;
+        height: 100%;
+
+        .user-name {
+            color: white;
+            font-size: 1.2em;
+        }
+
+        img {
+            height: 50%;
+            border-radius: 100%;
+            margin-bottom: 4%;
+        }
+    }
+
+    .settings {
+        // border: 4px solid orange;
+        width: 30%;
+        height: 100%;
+        @include flex-row-center;
+        color: white;
+        font-size: 2em;
+    }
+
+}
+
+.list-container-short {
+    // border: 4px solid blue;
+    height: 70%;
+    width: 100%;
+    overflow: scroll;
+
+    div {
+        height: 15%;
+        @include flex-row-start;
+        padding-left: 5%;
+    }
+
+    .scratch-pad {
+        // border: 4px solid orange;
+        background: $midnight-blue-400;
+        color: white;
+    }
+
+    .other-list {
+        border-bottom: 1px solid $asbestos-400;
+    }
+}
+
+.add {
+    position: fixed;
+    bottom: 6%;
+    right: 10%;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background: $midnight-blue-600;
+    color: white;
+    font-size: 2em;
+    @include flex-row-center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+}
+
+.list-title {
+    // border: 4px solid blue;
+    height: 10%;
+    width: 100%;
+    background: $midnight-blue-400;
+    color: white;
+    @include flex-row-center;
+}
+
+.list {
+    height: 90%;
+    width: 100%;
 }

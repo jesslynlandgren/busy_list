@@ -18,6 +18,11 @@
 /* Silver */
 /* Concrete */
 /* Asbestos */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   height: 100%; }
 
@@ -29,11 +34,31 @@ body {
 a {
   text-decoration: none; }
 
-.main-view {
-  display: block;
-  height: 100%;
-  width: 100%; }
-
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(0%); } }
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); }
+  100% {
+    transform: translateX(0%); } }
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(100%); } }
+@keyframes slideOutToLeft {
+  0% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(-100%); } }
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0%); }
+  100% {
+    transform: translateX(100%); } }
 .welcome-container {
   height: 100%;
   background: #212f3d;
@@ -54,8 +79,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  justify-content: space-around; }
+  align-items: center; }
   .oauth-container .facebook-auth, .oauth-container .google-auth, .oauth-container .email-auth {
     width: 70%;
     height: 33.33%; }
@@ -78,6 +102,13 @@ a {
     .oauth-container .email-auth .signup-text {
       font-size: .8em; }
 
+.oauth-container.ng-enter {
+  transition: 0.5s linear all;
+  opacity: 0; }
+
+.oauth-container.ng-enter-active {
+  opacity: 1; }
+
 .credit-container {
   height: 15%;
   display: flex;
@@ -93,7 +124,8 @@ a {
 
 .login-form {
   height: 50%;
-  width: 70%; }
+  width: 70%;
+  margin-bottom: 10px; }
   .login-form .login-email, .login-form .login-password {
     height: 50%;
     width: 100%;
@@ -125,14 +157,16 @@ a {
   height: 20%;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 10px; }
 
 .jk-signup {
   font-size: .8em; }
 
 .signup-form {
   height: 60%;
-  width: 70%; }
+  width: 70%;
+  margin-bottom: 10px; }
   .signup-form .signup-name, .signup-form .signup-email, .signup-form .signup-password {
     height: 33.3%;
     width: 100%;
@@ -163,11 +197,132 @@ a {
   color: #212f3d;
   width: 70%;
   height: 20%;
+  margin-bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center; }
 
 .jk-login {
   font-size: .8em; }
+
+.all_lists, .one_list {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out; }
+
+.all_lists.ng-enter {
+  animation-name: slideInFromLeft; }
+
+.all_lists.ng-leave {
+  animation-name: slideOutToLeft; }
+
+.one_list.ng-enter {
+  animation-name: slideInFromRight; }
+
+.one_list.ng-leave {
+  animation-name: slideOutToRight; }
+
+.nav-all, .nav-one {
+  width: 100%;
+  height: 13%;
+  background: #1c2833;
+  color: white;
+  font-size: 2em;
+  padding: 0 15px 0 20px; }
+
+.nav-all {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center; }
+
+.nav-one {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+
+.main-container {
+  width: 100%;
+  height: 87%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.user-dash {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #273746; }
+  .user-dash .user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%; }
+    .user-dash .user-info .user-name {
+      color: white;
+      font-size: 1.2em; }
+    .user-dash .user-info img {
+      height: 50%;
+      border-radius: 100%;
+      margin-bottom: 4%; }
+  .user-dash .settings {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em; }
+
+.list-container-short {
+  height: 70%;
+  width: 100%;
+  overflow: scroll; }
+  .list-container-short div {
+    height: 15%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5%; }
+  .list-container-short .scratch-pad {
+    background: #566573;
+    color: white; }
+  .list-container-short .other-list {
+    border-bottom: 1px solid #99a3a4; }
+
+.add {
+  position: fixed;
+  bottom: 6%;
+  right: 10%;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background: #273746;
+  color: white;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+.list-title {
+  height: 10%;
+  width: 100%;
+  background: #566573;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.list {
+  height: 90%;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

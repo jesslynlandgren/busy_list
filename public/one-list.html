@@ -1,20 +1,51 @@
 <div class="nav-one">
     <div class="hamburger">
-        <i ui-sref="index.all_lists" class="fa fa-bars" aria-hidden="true"></i>
+        <i ui-sref="index.all_lists({user_id: user_id})" class="fa fa-bars" aria-hidden="true"></i>
     </div>
 </div>
 
 <div class="main-container">
     <div class="list-title">
-        List Title
+        {{list.name}}
     </div>
     <div class="list">
-        <div class="list-item">
-            List #1
+        <div class="list-item" ng-repeat="item in items">
+            <div class="checkbox" ng-hide="item.done" ng-click="markItem(item._id, item.done)">
+                <i class="fa fa-square-o"></i>
+            </div>
+            <div class="checkbox" ng-show="item.done" ng-click="markItem(item._id, item.done)">
+                <i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="item-text" ng-hide="item.done">
+                {{item.text}}
+            </div>
+            <div class="item-text done-item" ng-show="item.done">
+                {{item.text}}
+            </div>
+            <div class="delete" ng-click="deleteItem(item._id)">
+                <i class="fa fa-trash-o"></i>
+            </div>
         </div>
     </div>
 
-    <div class="add">
+    <div class="add" ng-click="toggleNewItem()">
         <i class="fa fa-plus"></i>
     </div>
+
+    <div class="new-item-modal" ng-show="addingItem">
+        <div class="new-top">
+            <div class="">New Item</div>
+            <button class="cancel" type="button" ng-click="toggleNewItem()">&times;</button>
+        </div>
+        <div class="new-middle">
+            <div class="add-item-message">{{message}}</div>
+            <input ng-model="newItemText" type="text" class="new-item" name="new-item" value="">
+        </div>
+        <div class="new-bottom">
+            <button class="save" type="button" name="button" ng-click="addItem()">create</button>
+        </div>
+    </div>
+
+    <div class="filter" ng-show="addingItem"></div>
+
 </div>

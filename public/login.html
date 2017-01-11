@@ -1,20 +1,23 @@
-<div class="login-form">
+<div ng-show="loginError" class="error">{{loginMsg}}</div>
+
+<form class="login-form" ng-submit="login()">
     <div class="login-email">
         <div class="icon-container">
             <i class="icon-mail"></i>
         </div>
-        <input type="text" name="email" value="" placeholder="email">
+        <input ng-model="loginForm.email" type="text" name="email" value="" placeholder="email">
     </div>
     <div class="login-password">
         <div class="icon-container">
             <i class="icon-key"></i>
         </div>
-        <input type="password" name="password" value="" placeholder="password">
+        <input ng-model="loginForm.password" type="password" name="password" value="" placeholder="password">
     </div>
-</div>
-<div class="login-submit" ng-click="login()">
-    login
-</div>
+    <button type="submit" class="login-submit">
+        login
+    </button>
+</form>
+
 <div class="jk-signup" ui-sref="welcome.signup">
     Need an account? Sign up.
 </div>

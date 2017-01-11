@@ -1,0 +1,37 @@
+<div class="nav-one">
+    <div class="hamburger">
+        <i ui-sref="index.all_lists({user_id: user_id})" class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="list-title">
+        Scratch Pad
+    </div>
+    <div class="list">
+        <div class="list-item" ng-repeat="item in items">
+            {{item.text}}
+        </div>
+    </div>
+
+    <div class="add" ng-click="toggleNewItem()">
+        <i class="fa fa-plus"></i>
+    </div>
+
+    <div class="new-item-modal" ng-show="addingItem">
+        <div class="new-top">
+            <div class="">New Item</div>
+            <button class="cancel" type="button" ng-click="toggleNewItem()">&times;</button>
+        </div>
+        <div class="new-middle">
+            <div class="add-item-message">{{message}}</div>
+            <input ng-model="newItemText" type="text" class="new-item" name="new-item" value="">
+        </div>
+        <div class="new-bottom">
+            <button class="save" type="button" name="button" ng-click="addItem()">create</button>
+        </div>
+    </div>
+
+    <div class="filter" ng-show="addingItem"></div>
+
+</div>

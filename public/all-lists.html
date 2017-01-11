@@ -1,6 +1,6 @@
 <div class="nav-all">
     <div class="right">
-        <i ui-sref="index.one_list" class="fa fa-chevron-right" aria-hidden="true"></i>
+        <!-- <i ui-sref="index.one_list" class="fa fa-chevron-right" aria-hidden="true"></i> -->
     </div>
 </div>
 
@@ -12,23 +12,42 @@
                 Jesslyn Landgren
             </div>
         </div>
-        <div class="settings">
+        <div class="settings" ng-click="toggleSettings()">
             <i class="icon-cog"></i>
+        </div>
+        <div class="settings-menu" ng-show="showSettings">
+            <div class="logout" ng-click="logout()">Log Out</div>
         </div>
     </div>
 
     <div class="list-container-short">
-        <div class="scratch-pad">
+        <div ui-sref="index.scratch_pad({user_id: user_id})" class="scratch-pad">
             Scratch Pad
         </div>
         <!-- ng repeat -->
-        <div class="other-list">
-            List #1
+        <div ui-sref="index.one_list({user_id: user_id, list_id: list._id})" ng-repeat="list in lists" class="other-list">
+            {{list.name}}
         </div>
     </div>
 
-    <div class="add">
+    <div class="add" ng-click="toggleNewList()">
         <i class="fa fa-plus"></i>
     </div>
+
+    <div class="new-list-modal" ng-show="addingList">
+        <div class="new-top">
+            <div class="">New List</div>
+            <button class="cancel" type="button" ng-click="toggleNewList()">&times;</button>
+        </div>
+        <div class="new-middle">
+            <div class="add-list-message">{{message}}</div>
+            <input ng-model="newListTitle" type="text" class="new-list" name="new-list" value="" minlength="3" maxlength="40">
+        </div>
+        <div class="new-bottom">
+            <button class="save" type="button" name="button" ng-click="addList()">create</button>
+        </div>
+    </div>
+
+    <div class="filter" ng-show="addingList"></div>
 
 </div>
